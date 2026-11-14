@@ -21,7 +21,7 @@ The repository is organized by topic so individual examples can be read and exec
 ## Learning path
 
 | Stage | Topic | What you learn |
-|---|---|---|
+| --- | --- | --- |
 | 1 | Python basics | Variables, types, operators, conditions |
 | 2 | Collections | Lists, strings, dictionaries, tuples, sets |
 | 3 | Control flow | For/while loops, nested loops, break, continue, loop else |
