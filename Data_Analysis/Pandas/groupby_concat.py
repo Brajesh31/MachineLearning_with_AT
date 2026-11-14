@@ -1,27 +1,24 @@
-# groupby_concat.py
+"""Demonstrate grouping and concatenating Pandas DataFrames."""
 import pandas as pd
 
-# Creating a DataFrame
-data = {
-    'Name': ['John', 'Jane', 'Jack', 'Jill'],
-    'Department': ['HR', 'IT', 'HR', 'IT'],
-    'Salary': [50000, 60000, 55000, 65000]
-}
-df = pd.DataFrame(data)
+def main() -> None:
+    employees = pd.DataFrame({
+        "Name": ["John", "Jane", "Jack", "Jill"],
+        "Department": ["HR", "IT", "HR", "IT"],
+        "Salary": [50000, 60000, 55000, 65000],
+    })
+    average_salary = employees.groupby("Department")["Salary"].mean()
+    print("Average salary by department:")
+    print(average_salary)
 
-# Grouping by department and calculating average salary
-grouped = df.groupby('Department').mean()
-print("Average salary by department:")
-print(grouped)
+    new_employees = pd.DataFrame({
+        "Name": ["Jake", "Laura"],
+        "Department": ["HR", "IT"],
+        "Salary": [48000, 62000],
+    })
+    combined = pd.concat([employees, new_employees], ignore_index=True)
+    print("\nConcatenated DataFrame:")
+    print(combined)
 
-# Concatenating two DataFrames
-data2 = {
-    'Name': ['Jake', 'Laura'],
-    'Department': ['HR', 'IT'],
-    'Salary': [48000, 62000]
-}
-df2 = pd.DataFrame(data2)
-
-df_concat = pd.concat([df, df2])
-print("\nConcatenated DataFrame:")
-print(df_concat)
+if __name__ == "__main__":
+    main()
