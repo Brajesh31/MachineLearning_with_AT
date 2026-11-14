@@ -1,0 +1,25 @@
+# Python bytecode and environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Test and tool caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Generated examples and outputs
+example.txt
+output.csv
+data.csv
+*.tmp
+
+# IDE and OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
