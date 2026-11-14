@@ -1,59 +1,48 @@
+# Generative AI Fundamentals Notes
 
+These notes summarize introductory concepts. Platform capabilities, product names, model availability, licenses, and legal requirements change, so verify current details against primary documentation before using them for decisions.
 
----
+## 1. AI's future impact
 
-**1. AI’s Future Impact:**
-- **AI automation** may lead to **job losses** or **displacement** of some workers.
-- **AI will positively impact** the workforce by increasing **efficiency** and **productivity**.
-- Increased **trust in AI** systems may lead to unnoticed **mistakes** and the loss of important **skills**.
-- **Privacy and security** concerns are expected to rise with AI use.
+- AI automation may displace some tasks and roles.
+- AI can also improve efficiency and productivity when deployed responsibly.
+- Over-reliance on AI can hide errors and weaken human skills if outputs are not reviewed.
+- Privacy, security, accountability, and transparency remain important concerns.
 
----
+## 2. Databricks Lakehouse AI concepts
 
-**2. Databricks Lakehouse AI Features in Production:**
-- **Model Serving** and **Lakehouse Monitoring** are key in the **production phase** of Generative AI applications.
-- **MLFlow Evaluation** is used for evaluating models in testing, not production.
+- Model Serving is used to deploy models for inference.
+- Lakehouse Monitoring supports monitoring data and model quality over time.
+- MLflow provides tools for experiment tracking and model evaluation. Product capabilities and names can evolve, so consult current Databricks and MLflow documentation.
 
----
+## 3. Competitive advantage for AI businesses
 
-**3. Competitive Advantage for AI Businesses:**
-- Unlocking the **value of proprietary data** within an organization is a distinct **competitive advantage** in AI.
+Organizations may gain an advantage by using proprietary, high-quality data responsibly. Data access alone is not enough. Governance, relevance, quality, privacy, and execution also matter.
 
----
+## 4. LLM input chunks
 
-**4. Large Language Models (LLMs) Input Chunks:**
-- **Tokens** are the chunks of text that are converted into numeric values in **LLMs**.
+Tokens are units used to represent text for language models. A token may be a word, part of a word, punctuation, or another text unit. Tokenization depends on the model's tokenizer.
 
----
+## 5. Security: prompt injection
 
-**5. Security Issues in AI Manipulation:**
-- **Prompt Injection** refers to the intentional crafting of instructions to manipulate AI behavior.
+Prompt injection is an attempt to manipulate a model by placing instructions in user input, retrieved content, documents, or other data. Treat untrusted content as data, enforce permissions outside the model, and validate actions before execution.
 
----
+## 6. Relationship between AI fields
 
-**6. Order of AI Fields (General to Specific):**
-- **Artificial Intelligence > Generative AI > Deep Learning** represents the correct order from general to specific.
+Artificial intelligence is the broad field. Machine learning is one approach within AI. Deep learning is a family of machine-learning methods based on multi-layer neural networks. Generative AI describes systems that create content and can use different underlying model approaches.
 
----
+## 7. Fine-tuning
 
-**7. Pre-trained AI Model Further Training:**
-- The process of further training a **pre-trained model** with a new dataset is called **Fine-tuning**.
+Fine-tuning means continuing the training of a pre-trained model on a task-specific dataset. It is different from prompt engineering and retrieval-augmented generation. It requires careful data preparation and evaluation.
 
----
+## 8. Legal and responsible-use risks
 
-**8. Legal Risks of Generative AI:**
-- AI could be used for **harmful content generation** like fraud messages or malicious code.
-- Businesses may be **held accountable** for privacy violations caused by AI.
+Generative AI can be misused to produce fraud, impersonation, harmful content, or malicious code. Organizations remain responsible for how they deploy systems and handle personal or protected data. Applicable obligations depend on jurisdiction and context.
 
----
+## 9. Governance and monitoring
 
-**9. Databricks Lakehouse AI Functionality:**
-- **Unity Catalog** offers **governance and lineage** for data and AI resources.
-- **Lakehouse Monitoring** helps track AI **model logs** for continuous improvement.
+Data and AI governance can include access controls, cataloging, lineage, auditability, and policy enforcement. Monitoring can help identify data quality issues, model drift, latency, and operational failures.
 
----
+## 10. Open-source and open-weight model licensing
 
-**10. Open-source LLMs for Commercial Use:**
-- **Databricks’ Dolly** and **Meta’s LLaMA (v1)** are open-source models that can be used for **commercial purposes**.
-
----
+Do not assume that a model is unrestricted because its weights or code are publicly available. Commercial use, redistribution, acceptable-use rules, and attribution requirements depend on the exact model license and version. Review the license directly before use.
