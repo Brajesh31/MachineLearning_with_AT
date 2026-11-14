@@ -2,47 +2,36 @@ name: Update README Automation
 
 on:
   workflow_dispatch:
-  push:
-  schedule:
-    - cron: "0 * * * *"
 
 permissions:
   contents: write
 
+concurrency:
+  group: update-readme-main
+  cancel-in-progress: false
+
 jobs:
   update-readme:
     runs-on: ubuntu-latest
-
+    timeout-minutes: 5
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
+      - name: Check out repository
+        uses: actions/checkout@v5
       - name: Update README timestamp
         run: |
           DATE=$(date -u +"%Y-%m-%d %H:%M UTC")
           TIMESTAMP_LINE="Last updated: $DATE"
-
-          if [ -f README.md ]; then
-            if grep -q "Last updated:" README.md; then
-              sed -i "s/Last updated:.*/$TIMESTAMP_LINE/" README.md
-            else
-              printf "\n%s\n" "$TIMESTAMP_LINE" >> README.md
-            fi
+          if grep -q "^Last updated:" README.md; then
+            sed -i "s/^Last updated:.*/$TIMESTAMP_LINE/" README.md
           else
-            printf "# Repository\n\n%s\n" "$TIMESTAMP_LINE" > README.md
+            printf "\\n%s\\n" "$TIMESTAMP_LINE" >> README.md
           fi
-
-          git config user.name "Brajesh31"
-          git config user.email "brajesh31.dev@gmail.com"
-
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add README.md
-
           if git diff --cached --quiet; then
             echo "No README changes detected."
             exit 0
           fi
-
           git commit -m "chore: update README timestamp"
-          git push origin HEAD
+          git push
