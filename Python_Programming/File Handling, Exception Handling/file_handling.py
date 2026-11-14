@@ -1,10 +1,16 @@
-# file_handling.py
+"""Write and read a UTF-8 text file using a caller-selected path."""
+import argparse
+from pathlib import Path
 
-# Writing to a file
-with open("example.txt", "w") as file:
-    file.write("This is a test file.")
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--path", type=Path, default=Path("example.txt"))
+    args = parser.parse_args()
+    args.path.parent.mkdir(parents=True, exist_ok=True)
+    args.path.write_text("This is a test file.\n", encoding="utf-8")
+    content = args.path.read_text(encoding="utf-8")
+    print(f"File content: {content.rstrip()}")
+    print(f"File path: {args.path}")
 
-# Reading from a file
-with open("example.txt", "r") as file:
-    content = file.read()
-    print(f"File content: {content}")
+if __name__ == "__main__":
+    main()
